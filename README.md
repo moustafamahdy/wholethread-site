@@ -7,7 +7,7 @@ Static website for the Wholethread Chrome extension: landing page, privacy polic
 - `index.html`, `support/index.html`, `privacy/index.html`, `404.html`
 - `style.css`, `icons/`, `favicon-16.png`, `favicon-48.png`
 - `robots.txt`, `sitemap.xml`, `.nojekyll`
-- `CNAME.pending` (see Publish order)
+- `CNAME` (holds `wholethread.org`)
 
 ## Canonical domain
 
