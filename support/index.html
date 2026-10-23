@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wholethread Support: Microsoft Teams Export Help</title>
+<meta name="description" content="Help for the Wholethread Chrome extension: Teams on the web only, keep the tab visible, attachment download settings and voice transcripts.">
+<link rel="canonical" href="https://wholethread.org/support/">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+<link rel="apple-touch-icon" href="../icons/icon128.png">
+<link rel="stylesheet" href="../style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wholethread">
+<meta property="og:title" content="Wholethread Support: Microsoft Teams Export Help">
+<meta property="og:description" content="Help for the Wholethread Chrome extension: Teams on the web only, keep the tab visible, attachment download settings and voice transcripts.">
+<meta property="og:url" content="https://wholethread.org/support/">
+<meta property="og:image" content="https://wholethread.org/icons/icon128.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wholethread Support: Microsoft Teams Export Help">
+<meta name="twitter:description" content="Help for the Wholethread Chrome extension: Teams on the web only, keep the tab visible, attachment download settings and voice transcripts.">
+<meta name="twitter:image" content="https://wholethread.org/icons/icon128.png">
+</head>
+<body>
+<header class="site">
+<div class="wrap">
+<a class="brand" href="../"><img src="../icons/icon48.png" width="32" height="32" alt="">Wholethread</a>
+<nav aria-label="Main">
+<ul>
+<li><a href="../">Home</a></li>
+<li><a href="../support/">Support</a></li>
+<li><a href="../privacy/">Privacy</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<div class="wrap">
+<h1>Wholethread support</h1>
+<p class="lead">Wholethread is a Chrome extension that exports a Microsoft Teams conversation open in the browser. This page covers the most common problems.</p>
+
+<h2>How do I contact support?</h2>
+<p>Use the Support tab on the <a href="https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn">Chrome Web Store listing</a> for Wholethread. Please describe what you clicked and what you expected to happen. Do not paste the contents of your chats.</p>
+
+<h2>Troubleshooting</h2>
+<h3>The Export button does not appear</h3>
+<p>Wholethread works with Teams on the web only, at teams.microsoft.com or teams.live.com. The Teams desktop app is not supported. Open the conversation in Chrome and reload the page.</p>
+<h3>The export stops or pauses</h3>
+<p>Keep the Teams tab visible while an export runs. Teams does not load messages while its tab is hidden, so switching to another tab or minimising the window can stall the export. Bring the tab back to the front and the export can continue.</p>
+<h3>Attachments do not download</h3>
+<p>If Chrome is set to "Ask where to save each file", it asks you about every attachment and interrupts the export. Turn that setting off in Chrome under Settings, Downloads, then run the export again.</p>
+<h3>A voice message has no text</h3>
+<p>Wholethread copies the transcription that Teams itself provides for each voice message. It does not do its own speech recognition. If Teams has no transcript for a message, the export says so.</p>
+<h3>I am not sure the whole chat was exported</h3>
+<p>The completeness check in the export says whether the start of the chat was reached, and flags breaks in the crawl and long date gaps. Attachments and voice transcripts that could not be saved are counted separately. You can set a From and To date to export a smaller range, and a repeat run can add only new messages.</p>
+
+<h2>Where is my export?</h2>
+<p>In your Downloads folder, in the format you chose (JSON, HTML or plain text). Attachments, if you chose them, are in a folder beside it at <code>Downloads/TeamsExport_&lt;chat&gt;_&lt;date&gt;/attachments</code>.</p>
+
+<h2>Is my data sent anywhere?</h2>
+<p>No. See the <a href="../privacy/">privacy policy</a>.</p>
+</div>
+</main>
+<footer class="site">
+<div class="wrap">
+<p>Wholethread is not affiliated with or endorsed by Microsoft. Microsoft Teams is a trademark of the Microsoft group of companies.</p>
+<p><a href="../privacy/">Privacy policy</a> &middot; <a href="../support/">Support</a> &middot; <a href="https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn">Chrome Web Store</a></p>
+</div>
+</footer>
+</body>
+</html>

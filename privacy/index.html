@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | Wholethread</title>
+<meta name="description" content="Wholethread's privacy policy: no server, no account, no analytics. Your Microsoft Teams export stays in your browser and your Downloads folder.">
+<link rel="canonical" href="https://wholethread.org/privacy/">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+<link rel="apple-touch-icon" href="../icons/icon128.png">
+<link rel="stylesheet" href="../style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wholethread">
+<meta property="og:title" content="Privacy Policy | Wholethread">
+<meta property="og:description" content="Wholethread's privacy policy: no server, no account, no analytics. Your Microsoft Teams export stays in your browser and your Downloads folder.">
+<meta property="og:url" content="https://wholethread.org/privacy/">
+<meta property="og:image" content="https://wholethread.org/icons/icon128.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Privacy Policy | Wholethread">
+<meta name="twitter:description" content="Wholethread's privacy policy: no server, no account, no analytics. Your Microsoft Teams export stays in your browser and your Downloads folder.">
+<meta name="twitter:image" content="https://wholethread.org/icons/icon128.png">
+</head>
+<body>
+<header class="site">
+<div class="wrap">
+<a class="brand" href="../"><img src="../icons/icon48.png" width="32" height="32" alt="">Wholethread</a>
+<nav aria-label="Main">
+<ul>
+<li><a href="../">Home</a></li>
+<li><a href="../support/">Support</a></li>
+<li><a href="../privacy/">Privacy</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<div class="wrap">
+<h1>Privacy Policy — Wholethread</h1>
+<p>Last updated: 23 October 2026</p>
+
+<h2>Summary</h2>
+<p>Wholethread does not collect, transmit, or store your data on any
+server. Everything it does happens inside your own browser, on your own
+computer. There is no account, no analytics, no telemetry, and no backend.</p>
+
+<h2>What the extension accesses</h2>
+<p>When you are on <code>teams.live.com</code> or <code>teams.microsoft.com</code> and you click
+<strong>Export</strong>, the extension reads the conversation that is already displayed on
+the page — sender names, message text, timestamps, and the names of shared
+files — and assembles them into a file.</p>
+<p>Two options add to that, each only when you tick it:</p>
+<ul>
+<li><strong>Attachments.</strong> The extension presses Teams' own <strong>Download</strong> control on
+each shared file and image in the conversation. Teams fetches the file from
+Microsoft exactly as it would if you clicked it yourself, and the extension
+saves it beside the export.</li>
+<li><strong>Voice message transcripts.</strong> The extension opens Teams' own <strong>View
+transcription</strong> for each voice message and copies the text Teams shows.
+Microsoft Teams produces that transcript; the extension sends no audio or
+text anywhere.</li>
+</ul>
+<p>Its page code runs only on Teams pages. The <code>downloads</code> permission does let the
+browser tell it about every download that starts. Only while it waits for an
+attachment it clicked does it look at a download's name, address and referring
+page, to recognise that Teams file; any other download keeps the name the browser
+gave it and nothing about it is stored. A download from another Teams tab that
+looks the same in that moment could be filed with the export.</p>
+
+<h2>What it does with that data</h2>
+<p>It writes the assembled conversation to a file in your computer's Downloads
+folder, in the format you chose (JSON, HTML, or plain text), with any
+attachments in a folder next to it. Those files belong to you and stay on your
+machine.</p>
+<p>The extension makes no network requests of its own: it contains no code that
+opens a network connection, and it sends your conversation nowhere. It requests
+three browser permissions, <code>downloads</code>, <code>offscreen</code> and <code>storage</code>, all used
+only to save files; they are explained below.</p>
+
+<h2>What it stores</h2>
+<p>Two small records per conversation, in your browser's local storage for the
+Teams site. Both are keyed by a shortened form of the conversation's name and a
+hash of its full name.</p>
+<ul>
+<li><strong>Last export point:</strong> the id of the newest message from your last complete
+export, a number derived from its timestamp. This lets a repeat export
+collect only what is new instead of starting over.</li>
+<li><strong>Resume bookmark:</strong> kept only when an export was stopped or cut short, so
+the next one can tell you where it left off. It holds the oldest and newest
+points reached, the time it was saved, and a shortened form of the
+conversation's name.</li>
+</ul>
+<p>Neither contains message text, senders, file names or links. Both stay on your
+computer. You can clear them at any time by clearing site data for Teams.</p>
+<p>While attachments are downloading, the extension also keeps a note pairing
+each attachment with the browser's download number for it, so it can stop that
+download if the export is abandoned. The note holds a random identifier made for
+that export, the Teams id of the message, and the download number — no text,
+names, file names or links. It is kept in memory only, never written to disk.
+Each entry is removed when its download finishes, or, if the extension's
+background worker was paused at that moment, the next time it starts; all of
+them are gone when the browser closes.</p>
+
+<h2>What it sends to us</h2>
+<p>Nothing. There is no "us" in a technical sense — no server, no database, no
+collection endpoint. The authors of this extension never see your
+conversations, because the extension sends nothing to them.</p>
+
+<h2>Your responsibility for the exported file</h2>
+<p>The file the extension creates contains the conversation as far as it was
+exported, including anything the other participants wrote and the names of any files they shared,
+and, if you chose them, the attachments and voice transcripts that were
+saved. Any that could not be saved are counted in the export instead.
+Treat it with the same care as the conversation itself: store it somewhere
+appropriate, and do not share it more widely than the participants would
+expect.</p>
+
+<h2>Permissions, explained</h2>
+<div class="tablewrap">
+<table>
+<thead>
+<tr><th scope="col">Permission</th><th scope="col">Why it is needed</th></tr>
+</thead>
+<tbody>
+<tr><td><code>downloads</code></td><td>To save the export file. A long conversation is saved in numbered parts, and without this permission the browser blocks repeated saves from a page. It is also used to confirm the final file was saved, to remove the extension's own numbered parts afterwards, to place downloaded attachments in the export's folder, and to stop an attachment download once the browser reports it is larger than the per-file limit set in the panel (500 MB by default). That check depends on the browser knowing the size before the file finishes, so it is best effort. The per-export limit (1,000 MB by default) stops further attachments from starting; it does not cut one already downloading, so an export can pass it by up to one file. It acts only on downloads made during an export: its own files, and the attachments Teams downloads when the extension presses Download. A download from Teams that starts at the same moment as one of those can be filed with the export.</td></tr>
+<tr><td><code>offscreen</code></td><td>The browser's background worker cannot turn text into a downloadable file, so the extension opens a hidden extension page that does only that, for the file being saved. It has no network access and does nothing else.</td></tr>
+<tr><td><code>storage</code></td><td>To keep the in-memory note described under "What it stores", so a stalled attachment download can still be stopped after the browser has paused the extension's background worker. Session storage only: nothing is written to disk.</td></tr>
+<tr><td>Access to <code>teams.live.com</code> and <code>teams.microsoft.com</code></td><td>To read the conversation you asked to export. These are the only sites the extension is allowed to run on.</td></tr>
+</tbody>
+</table>
+</div>
+<p>No other permission is requested.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the updated version will be published at the same
+address, with a new date at the top.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy can be directed to the extension's publisher
+through the Chrome Web Store listing.</p>
+
+<h2>This website</h2>
+<p>This website itself uses no cookies, no analytics and no third-party scripts. It is hosted on GitHub Pages, whose own logs are governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+</div>
+</main>
+<footer class="site">
+<div class="wrap">
+<p>Wholethread is not affiliated with or endorsed by Microsoft. Microsoft Teams is a trademark of the Microsoft group of companies.</p>
+<p><a href="../privacy/">Privacy policy</a> &middot; <a href="../support/">Support</a> &middot; <a href="https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn">Chrome Web Store</a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export a Microsoft Teams Chat | Wholethread</title>
+<meta name="description" content="Wholethread is a Chrome extension that exports a Microsoft Teams chat on the web to JSON, HTML or plain text, with files and voice transcripts.">
+<link rel="canonical" href="https://wholethread.org/">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="apple-touch-icon" href="icons/icon128.png">
+<link rel="stylesheet" href="style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wholethread">
+<meta property="og:title" content="Export a Microsoft Teams Chat | Wholethread">
+<meta property="og:description" content="Wholethread is a Chrome extension that exports a Microsoft Teams chat on the web to JSON, HTML or plain text, with files and voice transcripts.">
+<meta property="og:url" content="https://wholethread.org/">
+<meta property="og:image" content="https://wholethread.org/icons/icon128.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Export a Microsoft Teams Chat | Wholethread">
+<meta name="twitter:description" content="Wholethread is a Chrome extension that exports a Microsoft Teams chat on the web to JSON, HTML or plain text, with files and voice transcripts.">
+<meta name="twitter:image" content="https://wholethread.org/icons/icon128.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Wholethread",
+  "alternateName": "Wholethread — Chat History Export",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "description": "A Chrome extension that exports a Microsoft Teams conversation open in the browser as JSON, HTML or plain text.",
+  "url": "https://wholethread.org/",
+  "downloadUrl": "https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn",
+  "image": "https://wholethread.org/icons/icon128.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wholethread",
+  "url": "https://wholethread.org/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Wholethread",
+  "url": "https://wholethread.org/",
+  "logo": "https://wholethread.org/icons/icon128.png"
+}
+</script>
+</head>
+<body>
+<header class="site">
+<div class="wrap">
+<a class="brand" href="./"><img src="icons/icon48.png" width="32" height="32" alt="">Wholethread</a>
+<nav aria-label="Main">
+<ul>
+<li><a href="./">Home</a></li>
+<li><a href="support/">Support</a></li>
+<li><a href="privacy/">Privacy</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<div class="wrap">
+<h1>Export a Microsoft Teams chat to JSON, HTML or text</h1>
+<p class="lead">To export a Microsoft Teams chat, open the conversation in Teams on the web (teams.microsoft.com or teams.live.com), install the Wholethread extension for Chrome, click Export, and choose JSON, HTML or plain text. The file is saved to your Downloads folder.</p>
+<p><a class="btn" href="https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn">Add Wholethread to Chrome</a></p>
+<p>Wholethread runs entirely in your browser. It has no server, no account and no analytics, and it makes no network requests of its own.</p>
+
+<h2>What does Wholethread save?</h2>
+<p>Wholethread saves the Microsoft Teams conversation that is open in your browser. Exported messages stay in order, with sender and time where Teams shows them. Check the export's completeness result, and its attachment and transcript counts, before treating it as a complete record. A reply is saved together with the message it quotes.</p>
+<ul>
+<li><strong>Formats:</strong> JSON, HTML or plain text.</li>
+<li><strong>Shared files and images (optional):</strong> downloaded into a folder beside the export, at <code>Downloads/TeamsExport_&lt;chat&gt;_&lt;date&gt;/attachments</code>. The default limits are 500 MB per file and 1,000 MB per export, and you can change them in the panel.</li>
+<li><strong>Voice messages as text (optional):</strong> the extension opens the transcription that Teams itself provides for each voice message and saves the words. Wholethread does not do its own speech recognition. If Teams has no transcript for a message, the export says so.</li>
+<li><strong>Completeness check:</strong> the export reports whether the start of the chat was reached, and flags breaks in the crawl and long date gaps. Attachments and voice transcripts that could not be saved are counted separately.</li>
+<li><strong>Date range and repeat runs:</strong> choose a From and To date, and let a repeat run add only the new messages.</li>
+</ul>
+
+<h2>How do I use it?</h2>
+<ol>
+<li>Install Wholethread from the Chrome Web Store.</li>
+<li>Open the conversation you want in Teams on the web.</li>
+<li>Click Export, pick a format and any options, and keep the Teams tab visible until the file is saved to your Downloads folder.</li>
+</ol>
+
+<h2>Is it private?</h2>
+<p>Yes. Everything happens inside your own browser, on your own computer. The extension has no server, needs no account, and has no analytics or telemetry. The files it creates go only to your Downloads folder. Read the full <a href="privacy/">privacy policy</a>.</p>
+
+<h2>What does it not do?</h2>
+<ul>
+<li>It works on Teams on the web only. The Teams desktop app is not supported.</li>
+<li>Teams must stay open in a visible browser tab while an export runs.</li>
+<li>Voice message text exists only where Teams generates a transcript.</li>
+<li>It runs only on teams.microsoft.com and teams.live.com.</li>
+</ul>
+
+<h2>Is Wholethread free?</h2>
+<p>Every feature is free during launch. Voice transcripts, attachment downloads, the completeness check and new-messages-only exports will become paid later, and the extension will say so before that happens.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I export a Microsoft Teams chat?</h3>
+<p>Open the chat in Teams on the web, click Export in the Wholethread panel, choose JSON, HTML or plain text, and wait for the file to appear in your Downloads folder.</p>
+<h3>Can I export a Teams chat to a file I can read or search?</h3>
+<p>Yes. HTML opens in any browser, plain text opens in any editor, and JSON suits scripts and other tools. Exported messages keep their sender and time where Teams shows them.</p>
+<h3>Can I save Teams attachments and images too?</h3>
+<p>Yes, if you tick the option. Shared files and images are downloaded into an attachments folder beside the export. The default limits are 500 MB per file and 1,000 MB per export.</p>
+<h3>Can I turn Teams voice messages into text?</h3>
+<p>Yes, where Teams provides a transcript. Wholethread copies the transcription that Teams shows for each voice message. It does not transcribe audio itself, and the export says so when Teams has no transcript.</p>
+<h3>Does it work with the Teams desktop app?</h3>
+<p>No. Wholethread works with Microsoft Teams in the browser only, at teams.microsoft.com or teams.live.com.</p>
+<h3>How do I know the whole chat was exported?</h3>
+<p>Wholethread runs a completeness check. It reports whether the start of the chat was reached, and flags breaks in the crawl and long date gaps. Attachments and voice transcripts that could not be saved are counted separately, so check both.</p>
+<h3>Can I export only part of a chat?</h3>
+<p>Yes. Set a From and To date to export a range. A repeat run can add only the messages that are new since the last export.</p>
+<h3>Does my chat leave my computer?</h3>
+<p>No. The extension has no server and makes no network requests of its own. The export goes to your Downloads folder only.</p>
+<h3>How much does it cost?</h3>
+<p>Every feature is free during launch. Voice transcripts, attachment downloads, the completeness check and new-messages-only exports will become paid later, and the extension will say so before that happens.</p>
+<h3>Where do I get help?</h3>
+<p>See the <a href="support/">support page</a>.</p>
+<p><a class="btn" href="https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn">Add Wholethread to Chrome</a></p>
+</div>
+</main>
+<footer class="site">
+<div class="wrap">
+<p>Wholethread is not affiliated with or endorsed by Microsoft. Microsoft Teams is a trademark of the Microsoft group of companies.</p>
+<p><a href="privacy/">Privacy policy</a> &middot; <a href="support/">Support</a> &middot; <a href="https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn">Chrome Web Store</a></p>
+</div>
+</footer>
+</body>
+</html>
