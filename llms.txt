@@ -1,0 +1,16 @@
+# Wholethread
+
+> Wholethread is a Chrome extension that exports a Microsoft Teams chat on the web to JSON, HTML or plain text, with files and voice transcripts. It runs entirely in your browser, with no server, no account and no analytics.
+
+- Works on Teams on the web only (teams.microsoft.com and teams.live.com). The Teams desktop app is not supported.
+- Exports to JSON, HTML or plain text, saved to your Downloads folder.
+- Optional: download shared files and images, and save the transcript Teams provides for voice messages.
+- Reports a completeness check, and lets you choose a From and To date or add only new messages on a repeat run.
+- Every feature is free during launch.
+- Wholethread is not affiliated with or endorsed by Microsoft.
+
+## Pages
+
+- [Wholethread](https://wholethread.org/): what the extension saves, how to use it, its limits and frequently asked questions.
+- [Support](https://wholethread.org/support/): help with Teams on the web only, keeping the tab visible, attachment download settings and voice transcripts.
+- [Privacy](https://wholethread.org/privacy/): no server, no account, no analytics; your export stays in your browser and your Downloads folder.

@@ -5,7 +5,8 @@ Static website for the Wholethread Chrome extension: landing page, privacy polic
 ## Layout
 
 - `index.html`, `support/index.html`, `privacy/index.html`, `404.html`
-- `style.css`, `icons/`, `favicon-16.png`, `favicon-48.png`
+- `style.css`, `icons/`, `favicon-16.png`, `favicon-48.png`, `favicon.ico`, `og.png`
+- `llms.txt`, `a9d49930f7405a7eb80ac2722f73bdde.txt` (IndexNow key file)
 - `robots.txt`, `sitemap.xml`, `.nojekyll`
 - `CNAME` (holds `wholethread.org`)
 
@@ -30,7 +31,7 @@ The absolute canonical URLs point at `wholethread.org`, so the `github.io` copy 
 
 1. Google Search Console: add `https://wholethread.org` as a property, verify via DNS TXT, submit `https://wholethread.org/sitemap.xml`.
 2. Bing Webmaster Tools: add the site (or import it from Search Console), submit the same sitemap.
-3. IndexNow: generate a key, publish `<key>.txt` containing the key at the site root, then submit changed URLs to `https://api.indexnow.org/indexnow`. Resubmit after each content change.
+3. IndexNow: generate a key, publish `<key>.txt` containing the key at the site root (the key file is `a9d49930f7405a7eb80ac2722f73bdde.txt`), then submit changed URLs to `https://api.indexnow.org/indexnow`. Resubmit after each content change.
 
 ## Release checklist
 
