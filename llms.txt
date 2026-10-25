@@ -14,3 +14,4 @@
 - [Wholethread](https://wholethread.org/): what the extension saves, how to use it, its limits and frequently asked questions.
 - [Support](https://wholethread.org/support/): help with Teams on the web only, keeping the tab visible, attachment download settings and voice transcripts.
 - [Privacy](https://wholethread.org/privacy/): no server, no account, no analytics; your export stays in your browser and your Downloads folder.
+- [Chrome Web Store listing](https://chromewebstore.google.com/detail/njbmphidffjmmobbdnebbeneedmhhljn): install Wholethread for Chrome.
