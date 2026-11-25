@@ -41,19 +41,23 @@
 <main>
 <div class="wrap">
 <h1>Privacy Policy — Wholethread</h1>
-<p>Last updated: 23 October 2026</p>
+<p>Last updated: 25 November 2026</p>
 
 <h2>Summary</h2>
 <p>Wholethread does not collect, transmit, or store your data on any
-server. Everything it does happens inside your own browser, on your own
+server of ours. Everything it does happens inside your own browser, on your own
 computer. There is no account, no analytics, no telemetry, and no backend.</p>
+<p>A normal export makes no network requests. The optional <strong>Fast export</strong>
+(personal Teams only, <code>teams.live.com</code>) sends read-only requests from your
+browser to Microsoft Teams' own chat service, described below. Nothing is sent
+to us or to any third party.</p>
 
 <h2>What the extension accesses</h2>
 <p>When you are on <code>teams.live.com</code> or <code>teams.microsoft.com</code> and you click
 <strong>Export</strong>, the extension reads the conversation that is already displayed on
 the page — sender names, message text, timestamps, and the names of shared
 files — and assembles them into a file.</p>
-<p>Two options add to that, each only when you tick it:</p>
+<p>Three options add to that, each only when you tick it:</p>
 <ul>
 <li><strong>Attachments.</strong> The extension presses Teams' own <strong>Download</strong> control on
 each shared file and image in the conversation. Teams fetches the file from
@@ -63,6 +67,10 @@ saves it beside the export.</li>
 transcription</strong> for each voice message and copies the text Teams shows.
 Microsoft Teams produces that transcript; the extension sends no audio or
 text anywhere.</li>
+<li><strong>Fast export.</strong> Instead of scrolling the page, the extension asks Teams' own
+chat service for the messages of the chat you have open. See "Fast export and
+the network" below. It is off unless you tick it, and it works only on
+<code>teams.live.com</code>.</li>
 </ul>
 <p>Its page code runs only on Teams pages. The <code>downloads</code> permission does let the
 browser tell it about every download that starts. Only while it waits for an
@@ -76,15 +84,41 @@ looks the same in that moment could be filed with the export.</p>
 folder, in the format you chose (JSON, HTML, or plain text), with any
 attachments in a folder next to it. Those files belong to you and stay on your
 machine.</p>
-<p>The extension makes no network requests of its own: it contains no code that
-opens a network connection, and it sends your conversation nowhere. It requests
-three browser permissions, <code>downloads</code>, <code>offscreen</code> and <code>storage</code>, all used
-only to save files; they are explained below.</p>
+<p>A normal (scrolling) export makes no network requests, and the extension sends
+your conversation nowhere. The only network requests it can make are the Fast
+export requests described below. It requests four browser permissions,
+<code>downloads</code>, <code>offscreen</code>, <code>storage</code> and <code>webRequest</code>, plus access to
+<code>teams.live.com</code>, used to save files, to keep the small records described
+below, and to support Fast export.</p>
+
+<h2>Fast export and the network</h2>
+<p>Fast export is a checkbox, off by default, and works on <code>teams.live.com</code> only.
+When you tick it and press Export:</p>
+<ul>
+<li>The extension's page script sends read-only GET requests to Microsoft Teams'
+own chat service, under <code>https://teams.live.com/api/chatsvc/consumer/</code>, for
+the open chat only. They go from your browser, with your own Teams session,
+to the same Microsoft service the Teams page already talks to.</li>
+<li>To do that it needs the session header Teams sends to that service. A
+script on the page cannot read request headers, so the <code>webRequest</code>
+permission lets the extension's background worker see that header. It starts
+watching only after you tick Fast export, only in that tab, and only on
+requests to that address; it stops as soon as it has the header, or after two
+minutes. The worker hands the header only to the extension's script on the
+Teams page that asked for it, for the length of the export; both forget it
+when the export ends, and the worker also drops it when that tab is closed or
+loads a new page (it notes only that a page load happened, not its address).
+It is never written to disk, logged, exported, or sent anywhere other than
+back to that Teams service.</li>
+<li>Nothing is sent to us or to any third party.</li>
+</ul>
+<p>Attachments and voice transcripts are not collected in a Fast export.</p>
 
 <h2>What it stores</h2>
 <p>Two small records per conversation, in your browser's local storage for the
 Teams site. Both are keyed by a shortened form of the conversation's name and a
-hash of its full name.</p>
+hash of its full name. Fast export keys them by the conversation's internal id
+instead, shortened and hashed the same way, so two chats with one name stay apart.</p>
 <ul>
 <li><strong>Last export point:</strong> the id of the newest message from your last complete
 export, a number derived from its timestamp. This lets a repeat export
@@ -92,7 +126,7 @@ collect only what is new instead of starting over.</li>
 <li><strong>Resume bookmark:</strong> kept only when an export was stopped or cut short, so
 the next one can tell you where it left off. It holds the oldest and newest
 points reached, the time it was saved, and a shortened form of the
-conversation's name.</li>
+conversation's name (Fast export also stores the conversation's internal id).</li>
 </ul>
 <p>Neither contains message text, senders, file names or links. Both stay on your
 computer. You can clear them at any time by clearing site data for Teams.</p>
@@ -104,11 +138,23 @@ names, file names or links. It is kept in memory only, never written to disk.
 Each entry is removed when its download finishes, or, if the extension's
 background worker was paused at that moment, the next time it starts; all of
 them are gone when the browser closes.</p>
+<p>One more record, in the extension's own storage, decides when to ask you for a
+review: how many exports have completed (it stops counting at two) and whether
+the request has been shown. That is all it holds, nothing about any
+conversation. It stays on your computer until you remove the extension, which
+deletes it.</p>
+<p>A second record in the extension's own storage keeps your last date-range choice
+and number of days (no chat content): whether the panel was set to Everything,
+Last N days or Custom, and what N was. It lets the panel open the way you left
+it. It stays on your computer until you remove the extension, which deletes it.</p>
 
 <h2>What it sends to us</h2>
 <p>Nothing. There is no "us" in a technical sense — no server, no database, no
 collection endpoint. The authors of this extension never see your
-conversations, because the extension sends nothing to them.</p>
+conversations, because the extension sends nothing to them. Fast export
+requests go to Microsoft Teams, not to us.</p>
+<p>When you uninstall the extension, Chrome opens a page on <code>teamsexport.com/uninstall/</code>.
+The extension sends no data with that request. The page has no analytics. Like any web page, it is served by hosts (GitHub Pages, with Cloudflare in front) that receive the usual request details, such as your IP address and browser version.</p>
 
 <h2>Your responsibility for the exported file</h2>
 <p>The file the extension creates contains the conversation as far as it was
@@ -127,9 +173,10 @@ expect.</p>
 </thead>
 <tbody>
 <tr><td><code>downloads</code></td><td>To save the export file. A long conversation is saved in numbered parts, and without this permission the browser blocks repeated saves from a page. It is also used to confirm the final file was saved, to remove the extension's own numbered parts afterwards, to place downloaded attachments in the export's folder, and to stop an attachment download once the browser reports it is larger than the per-file limit set in the panel (500 MB by default). That check depends on the browser knowing the size before the file finishes, so it is best effort. The per-export limit (1,000 MB by default) stops further attachments from starting; it does not cut one already downloading, so an export can pass it by up to one file. It acts only on downloads made during an export: its own files, and the attachments Teams downloads when the extension presses Download. A download from Teams that starts at the same moment as one of those can be filed with the export.</td></tr>
+<tr><td><code>webRequest</code></td><td>Only for Fast export, and only after you tick it, in that tab. To see the session header Teams itself sends to its own chat service, so the extension can ask that same service for the open chat's messages. It observes only requests to <code>https://teams.live.com/api/chatsvc/consumer/</code>, and does not block or change any request. The header is kept in memory only and is never stored, logged, exported or sent anywhere else.</td></tr>
 <tr><td><code>offscreen</code></td><td>The browser's background worker cannot turn text into a downloadable file, so the extension opens a hidden extension page that does only that, for the file being saved. It has no network access and does nothing else.</td></tr>
-<tr><td><code>storage</code></td><td>To keep the in-memory note described under "What it stores", so a stalled attachment download can still be stopped after the browser has paused the extension's background worker. Session storage only: nothing is written to disk.</td></tr>
-<tr><td>Access to <code>teams.live.com</code> and <code>teams.microsoft.com</code></td><td>To read the conversation you asked to export. These are the only sites the extension is allowed to run on.</td></tr>
+<tr><td><code>storage</code></td><td>To keep the extension records described under "What it stores": the download note, so a stalled attachment download can still be stopped after the browser has paused the extension's background worker (session storage, never written to disk), the review-request record (local storage: a count and whether the request was shown), and your last date-range choice and number of days (local storage, no chat content).</td></tr>
+<tr><td>Access to <code>teams.live.com</code> and <code>teams.microsoft.com</code></td><td>To read the conversation you asked to export. These are the only sites the extension is allowed to run on. Access to <code>teams.live.com</code> is also what allows <code>webRequest</code> to see the chat-service header for Fast export, and what the Fast export requests are sent to.</td></tr>
 </tbody>
 </table>
 </div>
